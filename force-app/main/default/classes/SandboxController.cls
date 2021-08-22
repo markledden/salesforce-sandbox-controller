@@ -8,7 +8,9 @@ public without sharing class SandboxController implements SandboxPostCopy {
     private static void publishEvent() {
         
         List<SandboxInitialisation__e> sandboxEvents = new List<SandboxInitialisation__e>();
-        sandboxEvents.add(new SandboxInitialisation__e());
+        sandboxEvents.add(new SandboxInitialisation__e(
+            Org__c = UserInfo.getOrganizationId()
+        ));
         List<Database.SaveResult> results = EventBus.publish(sandboxEvents); 
     }
 
