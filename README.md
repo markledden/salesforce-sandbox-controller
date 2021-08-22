@@ -12,24 +12,4 @@ A very simple platform event message (SandboxInitialisation__e) which signals a 
 
 In the spirit of 'low-code', the class simply publishes a platform event. Nothing else. 
 
-```apex
-public without sharing class SandboxController implements SandboxPostCopy {
-    
-    public void runApexClass(SandboxContext context) {    
-        publishEvent();
-    }
-
-    @future
-    private static void publishEvent() {
-        
-        List<SandboxInitialisation__e> sandboxEvents = new List<SandboxInitialisation__e>();
-            sandboxEvents.add(new SandboxInitialisation__e(
-                OrgId__c = UserInfo.getOrganizationId()
-            ));
-        List<Database.SaveResult> results = EventBus.publish(sandboxEvents); 
-    }
-
-}
-```
-
 Once this is setup, create Flows, Process Builders, or Apex Triggers to run any necessary post-refresh actions in the sandbox. 
