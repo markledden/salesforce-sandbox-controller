@@ -10,7 +10,7 @@ A very simple platform event message (SandboxInitialisation__e) which signals a 
 
 ## SandboxController.cls
 
-In the spirit of 'low-code', the class simply publishes es a platform event. Nothing else. 
+In the spirit of 'low-code', the class simply publishes a platform event. Nothing else. 
 
 ```apex
 public without sharing class SandboxController implements SandboxPostCopy {
