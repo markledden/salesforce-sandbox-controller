@@ -15,10 +15,4 @@ public without sharing class SandboxController implements SandboxPostCopy {
         List<Database.SaveResult> results = EventBus.publish(sandboxEvents); 
     }
 
-    @Future
-    private static void runFlow() {
-      	Flow.Interview.Sandbox_Flow flow1 = new Flow.Interview.Sandbox_Flow(new Map<String, Object>());
-        flow1.start();
-    }
-
 }
