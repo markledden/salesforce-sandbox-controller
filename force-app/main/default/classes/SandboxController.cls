@@ -2,6 +2,7 @@ public without sharing class SandboxController implements SandboxPostCopy {
     
     public void runApexClass(SandboxContext context) {    
         publishEvent();
+        runFlow();
     }
 
     @future
@@ -12,6 +13,12 @@ public without sharing class SandboxController implements SandboxPostCopy {
                 OrgId__c = UserInfo.getOrganizationId()
             ));
         List<Database.SaveResult> results = EventBus.publish(sandboxEvents); 
+    }
+
+    @Future
+    private static void runFlow() {
+      	Flow.Interview.Sandbox_Flow flow1 = new Flow.Interview.Sandbox_Flow(new Map<String, Object>());
+        flow1.start();
     }
 
 }
