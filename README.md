@@ -5,7 +5,7 @@
 
 ## Platform Event Definition 
 
-A very simple platform event message (SandboxInitialisation__e) which signals a new sandbox create/refresh. No custom fields required. 
+A very simple platform event message (SandboxInitialisation__e) which signals a new sandbox create/refresh. 
 
 
 ## SandboxController.cls
