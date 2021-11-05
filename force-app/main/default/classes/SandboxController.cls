@@ -1,18 +1,18 @@
 public without sharing class SandboxController implements SandboxPostCopy {
     
-    public void runApexClass(SandboxContext context) {    
-        publishEvent();
-        runFlow();
+    public void publishEvent(SandboxContext context) {    
+        newEvent();
     }
 
     @future
-    private static void publishEvent() {
-        
-        List<SandboxInitialisation__e> sandboxEvents = new List<SandboxInitialisation__e>();
-            sandboxEvents.add(new SandboxInitialisation__e(
-                OrgId__c = UserInfo.getOrganizationId()
-            ));
-        List<Database.SaveResult> results = EventBus.publish(sandboxEvents); 
+    private static void newEvent() {
+
+        List<Sandbox_Event__e> ev = new List<Sandbox_Event__e>();
+            ev.add(new Sandbox_Event__e(
+                body__c = 'New Refresh')
+            );
+        List<Database.SaveResult> results = EventBus.publish(ev); 
+
     }
 
 }
