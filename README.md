@@ -1,15 +1,8 @@
 # Salesforce Sandbox Controller
+Use a controller class to publish a platform event when a sandbox is created or refreshed. Subscribe to the platform event to trigger any necessary post sandbox actions in your org.
 
-1. Automatically publish a platform event upon sandbox create/refresh.
-2. Use the platform event as a trigger to initiate post-refresh actions. 
+## Example: Update .invalid Email Addresses
 
-## Platform Event Definition 
+Strip the .invalid suffix on user email addresses to allow them access and to reset passwords in the sandbox. 
 
-A very simple platform event message (SandboxInitialisation__e) which signals a new sandbox create/refresh. 
-
-
-## SandboxController.cls
-
-In the spirit of 'low-code', the class simply publishes a platform event. Nothing else. 
-
-Once this is setup, create Flows, Process Builders, or Apex Triggers to run any necessary post-refresh actions in the sandbox. 
+In this example we'll create a Platform Event Triggered Flow which will get the users in the Sandbox Users public group, loop through and assign the email addresses before saving.
