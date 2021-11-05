@@ -5,7 +5,8 @@ public with sharing class SandboxControllerTest {
 	static void testSandboxPostCopyScript() {
 
 		SandboxController apexClass = new SandboxController();
-		
 		Test.testSandboxPostCopyScript(apexClass, UserInfo.getOrganizationId(),UserInfo.getOrganizationId(), 'sandboxName');
+
 	}
+
 }
